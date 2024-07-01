@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encritador de Texto</title>
+    <link rel="shortcut icon" href="../imag/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo de la página -->
+        <div class="logo">
+            <img src="../imag/logo.png" alt="Logo" height="35">
+        </div>
+
+        <!-- Sección para encriptar texto -->
+        <div class="encriptar">
+            <!-- Área de texto donde el usuario ingresa el texto a encriptar -->
+            <textarea
+                name="texto"
+                class="texto"
+                id="texto"
+                cols="30"
+                rows="10"
+                placeholder="Ingresa el texto aquí"
+            ></textarea>
+
+            <!-- Indicaciones para el usuario sobre el formato del texto -->
+            <div class="terminos">
+                <img src="../imag/Vector.png" alt="Icono" height="15">
+                <p>Solo letras minúsculas sin acentos</p>
+            </div>
+
+            <!-- Botones para encriptar y desencriptar el texto -->
+            <div class="botones">
+                <button class="btn-encriptar" type="button" onclick="encritador()">Encriptar</button>
+                <input type="button" class="btn-desencriptar" value="Desencriptar" onclick="desencriptar()">
+            </div>
+        </div>
+
+        <!-- Sección donde se muestra el resultado de la encriptación -->
+        <div class="encriptado">
+            <!-- Imagen decorativa -->
+            <img src="../imag/Muñeco.png" alt="Muñeco" id="muñeco">
+
+            <!-- Mensaje encriptado y detalles -->
+            <div class="mensaje-encriptado" id="mensaje-encriptado">
+                <h2 id="titulo-mensaje">Ningún mensaje encontrado</h2>
+                <p id="parrafo">Ingresa el texto que deseas encriptar o desencriptar</p>
+              
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Archivo JavaScript que contiene las funciones para encriptar y desencriptar -->
+<script src="../javascrit/encriptador.js"></script>
+</html>
