@@ -80,3 +80,17 @@ function desencriptar() {
         swal("Ooops!","Debes ingresar algún texto","warning");
     }
 }
+
+function copiarTexto() {
+    let texto = document.getElementById("texto").value;
+
+    if (texto.length != 0) {
+        navigator.clipboard.writeText(texto).then(function() {
+            swal("Éxito", "Texto copiado al portapapeles", "success");
+        }, function(err) {
+            swal("Error", "No se pudo copiar el texto", "error");
+        });
+    } else {
+        swal("Ooops!", "No hay texto para copiar", "warning");
+    }
+}

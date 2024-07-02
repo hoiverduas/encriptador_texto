@@ -44,10 +44,9 @@
 .logo {
   display: flex;
   align-items: center;
-  margin-left: 30px;
+  margin-left: 30px; /* Ajusta el margen izquierdo según el diseño deseado */
   padding-top: 25px;
 }
-
 /* Indicaciones para el usuario */
 .terminos {
   display: flex;
@@ -133,6 +132,32 @@
   padding: 1.8%;
 }
 
+.btn-copiar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5%;
+  gap: 8px;
+  width: 60%; /* Ajusta el ancho según el diseño deseado */
+  background-color: #fff;
+  border-radius: 24px;
+  font-family: "Inter";
+  font-size: 18px;
+  line-height: 1px;
+  text-align: center;
+  color: #0a3871;
+  margin-left: 10px;
+}
+
+.btn-copiar:hover {
+  margin: 0.3%;
+  width: 59.5%;
+  padding: 4.8%;
+}
+
+
 /* Sección donde se muestra el resultado de la encriptación */
 .encriptado {
   display: flex;
@@ -193,50 +218,52 @@
   top: 15%;
 }
 
-/* Diseño responsivo */
+/* Diseño responsivo para pantallas medianas (tabletas) */
 @media (max-width: 57.5em) {
   .container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
   }
   .encriptar {
       width: 100%;
   }
   .texto {
-      width: 80%;
-      height: 60%;
-      left: 10%;
+      width: 90%;
+      height: 50%;
+      left: 5%;
       top: 5%;
   }
   .terminos {
-      width: 80%;
-      left: 10%;
-      top: 67%;
+      width: 90%;
+      left: 5%;
+      top: 55%;
   }
   .terminos p {
-      font-size: 16px;
+      font-size: 14px;
   }
   .botones {
-      width: 80%;
-      left: 10%;
-      top: 70%;
+      width: 90%;
+      left: 5%;
+      top: 60%;
   }
   .btn-encriptar,
-  .btn-desencriptar {
+  .btn-desencriptar,
+  .btn-copiar {
       width: 48%;
       border-radius: 16px;
   }
   .btn-encriptar:hover,
-  .btn-desencriptar:hover {
+  .btn-desencriptar:hover,
+  .btn-copiar:hover {
       margin: 0.3%;
       width: 47.5%;
       padding: 1.8%;
   }
   .encriptado {
-      width: 80%;
-      height: 15%;
-      left: 10%;
-      top: 80%;
+      width: 90%;
+      height: 20%;
+      left: 5%;
+      top: 70%;
   }
   .mensaje-encriptado {
       width: 100%;
@@ -247,4 +274,75 @@
       display: none;
       visibility: hidden;
   }
+}
+
+/* Diseño responsivo para pantallas pequeñas (móviles) */
+@media (max-width: 37.5em) {
+  .container {
+      display: flex;
+      flex-direction: column;
+  }
+  .encriptar {
+      width: 100%;
+  }
+  .texto {
+      width: 90%;
+      height: 40%;
+      left: 5%;
+      top: 5%;
+  }
+  .terminos {
+      width: 90%;
+      left: 5%;
+      top: 50%;
+  }
+  .terminos p {
+      font-size: 12px;
+  }
+  .botones {
+      width: 90%;
+      left: 5%;
+      top: 55%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+  .btn-encriptar,
+  .btn-desencriptar,
+  .btn-copiar {
+      width: 100%;
+      border-radius: 16px;
+  }
+  .btn-encriptar:hover,
+  .btn-desencriptar:hover,
+  .btn-copiar:hover {
+      margin: 0.3%;
+      width: 99.5%;
+      padding: 1.8%;
+  }
+  .encriptado {
+      width: 90%;
+      height: 25%;
+      left: 5%;
+      top: 65%;
+  }
+  .mensaje-encriptado {
+      width: 100%;
+      top: 5%;
+  }
+  .encriptado img {
+      top: 0;
+      display: none;
+      visibility: hidden;
+  }
+
+  .logo {
+    margin-left: 10px; /* Ajusta el margen izquierdo para pantallas pequeñas */
+   }
+
+   .btn-copiar {
+    width: 100%; /* Ajusta el ancho para ocupar el 100% del contenedor */
+    padding: 5%;
+}
+
 }
