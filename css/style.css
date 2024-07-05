@@ -9,7 +9,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #f3f5fc;
+  background: #93D1E7;
 }
 
 /* Área de texto para ingresar el texto a encriptar/desencriptar */
@@ -25,12 +25,13 @@
   font-weight: 400;
   font-size: 32px;
   line-height: 150%;
-  background-color: #f3f5fc;
+  background-color: #93D1E7;
+  color: #080D14;
 }
 
 /* Placeholder del área de texto */
 .texto::placeholder {
-  color: #0a3871;
+  color: #080D14;
 }
 
 /* Quitar borde y resaltar cuando el área de texto está enfocada o activa */
@@ -44,9 +45,10 @@
 .logo {
   display: flex;
   align-items: center;
-  margin-left: 30px; /* Ajusta el margen izquierdo según el diseño deseado */
+  margin-left: 30px;
   padding-top: 25px;
 }
+
 /* Indicaciones para el usuario */
 .terminos {
   display: flex;
@@ -66,7 +68,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
-  color: #495057;
+  color: #080D14;
   opacity: 0.8;
   flex: none;
   order: 1;
@@ -92,13 +94,13 @@
   padding: 2%;
   gap: 8px;
   width: 25%;
-  background-color: #0a3871;
+  background-color: #080D14;
   border-radius: 24px;
   font-family: "Inter";
   font-size: 18px;
   line-height: 19px;
   text-align: center;
-  color: #fff;
+  color: #93D1E7;
   margin-right: 10px;
 }
 
@@ -112,15 +114,15 @@
   padding: 2%;
   gap: 8px;
   width: 25%;
-  background: #d8dfe8;
-  border: 1px solid #0a3871;
+  background: #004752;
+  border: 1px solid #93D1E7;
   border-radius: 24px;
   font-family: "Inter";
   font-weight: 400;
   font-size: 18px;
   line-height: 19px;
   text-align: center;
-  color: #0a3871;
+  color: #93D1E7;
   margin-left: 10px;
 }
 
@@ -132,33 +134,50 @@
   padding: 1.8%;
 }
 
+/* Estilo base del botón */
 .btn-copiar {
-  box-sizing: border-box;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 5%;
   gap: 8px;
-  width: 60%; 
-  background-color: #fff;
+  width: 60%;
+  background-color: #004752;
   border-radius: 24px;
   font-family: "Inter";
   font-size: 18px;
-  line-height: 1px;
+  line-height: 12px;
   text-align: center;
-  color: #0a3871;
   margin-left: 10px;
+  color: #93D1E7;
 }
 
+/* Hover del botón */
 .btn-copiar:hover {
   margin: 0.3%;
   width: 59.5%;
   padding: 4.8%;
 }
 
+/* Estado encriptado */
+.estado-encriptado .btn-copiar {
+  background-color: #0000ff; /* Azul para el botón en estado encriptado */
+  color: #ffffff; /* Blanco para el texto en estado encriptado */
+}
 
-/* Sección donde se muestra el resultado de la encriptación */
+/* Estado desencriptado */
+.estado-desencriptado .btn-copiar {
+  background-color: #000000; /* Negro para el botón en estado desencriptado */
+  color: #ffffff; /* Blanco para el texto en estado desencriptado */
+}
+
+/* Estado neutro */
+.neutro .btn-copiar {
+  background-color: #495057; /* Color neutro para el botón */
+  color: #ffffff;
+}
+
+
 .encriptado {
   display: flex;
   justify-content: center;
@@ -167,10 +186,19 @@
   height: 90%;
   left: 60%;
   top: 5%;
-  background: #fff;
+  background: white; /* Color neutro por defecto */
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
   border-radius: 32px;
 }
+
+.encriptado.encriptado-color {
+  background: #003e49; /* Color cuando está encriptado */
+}
+
+.encriptado.desencriptado-color {
+  background: #060f15; /* Color cuando está desencriptado */
+}
+
 
 /* Contenedor del mensaje encriptado */
 .mensaje-encriptado {
@@ -195,7 +223,6 @@
   font-size: 24px;
   line-height: 120%;
   text-align: center;
-  color: #343a40;
 }
 
 /* Texto del mensaje encriptado */
@@ -207,7 +234,17 @@
   font-size: 16px;
   line-height: 150%;
   text-align: center;
-  color: #495057;
+}
+
+/* Estado neutro */
+.neutro h2, .neutro p {
+  color: white;
+}
+
+/* Estado encriptado y desencriptado */
+.encriptado-color h2, .encriptado-color p,
+.desencriptado-color h2, .desencriptado-color p {
+  color: white;
 }
 
 /* Imagen dentro de la sección encriptada */
@@ -217,7 +254,6 @@
   height: 50%;
   top: 15%;
 }
-
 /* Diseño responsivo para pantallas medianas (tabletas) */
 @media (max-width: 57.5em) {
   .container {

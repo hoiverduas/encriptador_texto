@@ -1,9 +1,21 @@
+let isEncrypted = false; // Bandera para verificar si el texto ya está encriptado
+
 function encritador() {
+    // Verificar si el texto ya está encriptado
+    if (isEncrypted) {
+        swal("Ooops!", "El texto ya está encriptado", "warning");
+        return;
+    }
+
     // Obtener el valor del texto ingresado
     let texto = document.getElementById("texto").value;
     let tituloMensaje = document.getElementById("titulo-mensaje");
     let parrafo = document.getElementById("parrafo");
     let muñeco = document.getElementById("muñeco");
+    let contenedorEncriptado = document.querySelector('.encriptado');
+    let mensajeEncriptado = document.querySelector('.mensaje-encriptado');
+    let botonCopiar = document.querySelector('.btn-copiar');
+    
 
     // Diccionario de cifrado
     const cifrado = {
@@ -28,20 +40,36 @@ function encritador() {
         tituloMensaje.textContent = "Texto encriptado con éxito";
         parrafo.textContent = "";
         muñeco.src = "../imag/encriptado.png";
+        contenedorEncriptado.classList.add('encriptado-color');
+        contenedorEncriptado.classList.remove('desencriptado-color');
+        mensajeEncriptado.classList.add('encriptado-color');
+        mensajeEncriptado.classList.remove('desencriptado-color', 'neutro');
+        botonCopiar.classList.add('estado-desencriptado');
+        botonCopiar.classList.remove('estado-encriptado');
+        isEncrypted = true; // Marcar el texto como encriptado
     } else {
         document.getElementById("muñeco").src = "../imag/muñeco.png";
         tituloMensaje.textContent = "Ningun mensaje encontrado";
         parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-        swal("Ooops!","Debes ingresar algún texto","warning");
+        swal("Ooops!", "Debes ingresar algún texto", "warning");
     }
 }
 
 function desencriptar() {
+    // Verificar si el texto no está encriptado
+    if (!isEncrypted) {
+        swal("Ooops!", "El texto no está encriptado", "warning");
+        return;
+    }
+
     // Obtener el valor del texto ingresado
     let texto = document.getElementById("texto").value;
     let tituloMensaje = document.getElementById("titulo-mensaje");
     let parrafo = document.getElementById("parrafo");
     let muñeco = document.getElementById("muñeco");
+    let contenedorEncriptado = document.querySelector('.encriptado');
+    let mensajeEncriptado = document.querySelector('.mensaje-encriptado');
+    let botonCopiar = document.querySelector('.btn-copiar');
 
     // Diccionario de descifrado
     const descifrado = {
@@ -73,11 +101,18 @@ function desencriptar() {
         tituloMensaje.textContent = "Texto desencriptado con éxito";
         parrafo.textContent = "";
         muñeco.src = "../imag/desencriptado.png"; 
+        contenedorEncriptado.classList.add('desencriptado-color');
+        contenedorEncriptado.classList.remove('encriptado-color');
+        mensajeEncriptado.classList.add('desencriptado-color');
+        mensajeEncriptado.classList.remove('encriptado-color', 'neutro');
+        botonCopiar.classList.add('estado-desencriptado');
+        botonCopiar.classList.remove('estado-encriptado');
+        isEncrypted = false; // Marcar el texto como desencriptado
     } else {
         muñeco.src = "../imag/muñeco.png";
         tituloMensaje.textContent = "Ningún mensaje encontrado";
         parrafo.textContent = "Ingresa el texto que deseas encriptar o desencriptar";
-        swal("Ooops!","Debes ingresar algún texto","warning");
+        swal("Ooops!", "Debes ingresar algún texto", "warning");
     }
 }
 
